@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "patterns": {
+    "$alphanum": "[a-zA-Z0-9]+",
+    "$any": ".+",
+    "$digits": "\\d+"
+  },
+  "headers": {
+    "user-agent": "$any",
+    "host": "$any",
+    "content-type": "$any",
+    "accept": "$any",
+    "content-length": "$digits"
+  },
+  "routes": [
+    {
+      "pattern": "/api",
+      "methods": [
+        "GET"
+      ],
+      "get_params": {
+        "api_key": "$alphanum",
+        "name": "[a-zA-Z0-9 \\.]+"
+      }
+    },
+    {
+      "pattern": "/login",
+      "methods": [
+        "GET",
+        "POST"
+      ],
+      "post_params": {
+        "username": "$alphanum",
+        "password": "$alphanum"
+      }
+    }
+  ]
+}
+

@@ -1,0 +1,17 @@
+version: '2'
+
+services:
+  echo:
+    image: openresty/openresty:stretch
+    command: openresty -c /schemawaf/example/echo_server.conf
+    volumes:
+      - ..:/schemawaf
+  waf:
+    image: openresty/openresty:stretch
+    command: openresty -c /schemawaf/example/nginx.conf
+    volumes:
+      - ..:/schemawaf
+    ports:
+      - "80:80"
+    depends_on:
+      - echo
