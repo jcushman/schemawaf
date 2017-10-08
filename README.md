@@ -63,7 +63,7 @@ Unexpected values for known parameters return 401 without reaching the upstream 
 
 ## Schema format
 
-The schema.json file follows this pattern:
+In theory the right format to use would be OpenAPI, but for now the schema.json file follows this pattern:
 
     {
       "version": 1,
